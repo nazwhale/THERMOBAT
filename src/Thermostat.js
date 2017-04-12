@@ -43,6 +43,13 @@ Thermostat.prototype.switchSavingMode = function() {
   this.max === SAVING_MAX ? this.max = NON_SAVING_MAX : this.max = SAVING_MAX
 }
 
+Thermostat.prototype.isSavingOn = function() {
+  if(this.max === SAVING_MAX) {
+     return true
+   }
+  return false
+}
+
 Thermostat.prototype.reset = function(){
   this._temp = 20
 }
