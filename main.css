@@ -1,7 +1,35 @@
+body {
+  text-align: center;
+  background-image: url("http://www.dreadcentral.com/wp-content/uploads/2017/02/nos.jpg");
+  margin-left: 100px;
+}
+h1 {
+  color: #da3521;
+  font-size: 150px;
+}
+h3 {
+  color: #da3521;
+  font-size: 40px;
+}
+button {
+  font-family: "futura";
+  font-size: 50px;
+  border-radius: 30px;
+  background-color: #efead7;
+}
 .saving-on {
-  background: green;
+  background: #efead7;
 }
 
 .saving-off {
   background: black;
+  color: yellow;
+}
+#increase-temperature {
+  width: 100px;
+  height: 100px;
+}
+#decrease-temperature {
+  width: 100px;
+  height: 100px;
 }

@@ -41,6 +41,13 @@ Thermostat.prototype.decrease = function() {
 
 Thermostat.prototype.switchSavingMode = function() {
   this.max === SAVING_MAX ? this.max = NON_SAVING_MAX : this.max = SAVING_MAX
+  this.controlExcess();
+}
+
+Thermostat.prototype.controlExcess = function() {
+  if (this._temp > SAVING_MAX){
+    this._temp = SAVING_MAX
+  }
 }
 
 Thermostat.prototype.isSavingOn = function() {
