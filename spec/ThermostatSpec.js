@@ -30,10 +30,23 @@ describe('Thermostat', function() {
   });
 
   describe('power saving mode', function(){
-    it('is on', function(){
-      thermostat.isSavingMode = true;
+    it('is on by default', function(){
       expect(thermostat.max).toEqual(25);
     });
+    it('is switched off by switch method', function() {
+      thermostat.switchSavingMode()
+      expect(thermostat.max).toEqual(32);
+    });
   });
+
+  describe('reset function', function(){
+    it('resets the temp to 20', function() {
+      thermostat.increase()
+      thermostat.reset()
+      expect(thermostat.temp).toEqual(20)
+    });
+
+  });
+
 
 });
