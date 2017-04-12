@@ -3,14 +3,14 @@
 describe('Thermostat', function() {
 
   var thermostat;
-  beforeEach(function() {
+
+  beforeEach(function(){
     thermostat = new Thermostat();
   });
 
   describe('initialize', function() {
-
     it('starts at twenty degrees', function() {
-      expect(thermostat.getTemp()).toEqual(20);
+      expect(thermostat.getTemp()).toEqual(INITIAL_TEMP);
     });
   });
 
@@ -18,29 +18,41 @@ describe('Thermostat', function() {
 
     it('increases temp with an increase function', function() {
       thermostat.increase();
-      expect(thermostat.getTemp()).toEqual(21);
+      expect(thermostat.getTemp()).toEqual(INITIAL_TEMP + 1);
     });
 
     it('decreases temp with a decrease function', function(){
       thermostat.decrease();
-      expect(thermostat.getTemp()).toEqual(19);
+      expect(thermostat.getTemp()).toEqual(INITIAL_TEMP - 1);
     });
 
     it('has a minimum temperature of 10', function() {
       for (var i=0; i<11; i++) {
         thermostat.decrease();
       }
-      expect(thermostat.getTemp()).toEqual(10);
+      expect(thermostat.getTemp()).toEqual(MIN_TEMP);
     });
+
+    it('has a max temp of 32 when PSM is off', function(){
+      thermostat.switchSavingMode()
+      for (var i=0; i<13; i++) {
+        thermostat.increase();
+      }
+      expect(thermostat.getTemp()).toEqual(NON_SAVING_MAX);
+    })
   });
 
   describe('power saving mode', function(){
-    it('is on by default', function(){
-      expect(thermostat.max).toEqual(25);
-    });
     it('is switched off by switch method', function() {
       thermostat.switchSavingMode()
-      expect(thermostat.max).toEqual(32);
+      expect(thermostat.max).toEqual(NON_SAVING_MAX);
+    });
+
+    it('has max of 25 when PSM on', function(){
+      for (var i=0; i<6; i++){
+        thermostat.increase();
+      }
+      expect(thermostat.getTemp()).toEqual(SAVING_MAX)
     });
   });
 
@@ -48,7 +60,7 @@ describe('Thermostat', function() {
     it('resets the temp to 20', function() {
       thermostat.increase()
       thermostat.reset()
-      expect(thermostat.getTemp()).toEqual(20)
+      expect(thermostat.getTemp()).toEqual(INITIAL_TEMP)
     });
   });
 
@@ -71,9 +83,5 @@ describe('Thermostat', function() {
       }
       expect(thermostat.usage()).toEqual('high-usage')
     })
-
-
   })
-
-
 });

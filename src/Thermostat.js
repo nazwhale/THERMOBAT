@@ -15,14 +15,26 @@ Thermostat.prototype.getTemp = function() {
   return this._temp
 }
 
+Thermostat.prototype.isMinTemp = function(){
+  return this._temp === MIN_TEMP;
+}
+
+Thermostat.prototype.isMaxTemp = function(){
+  return this._temp === this.max
+}
+
 Thermostat.prototype.increase = function() {
-  this._temp += 1
+  if (this.isMaxTemp()){
+    return;
+  }
+  this._temp += 1;
 };
 
 Thermostat.prototype.decrease = function() {
-  if (this._temp > MIN_TEMP){
-    this._temp -= 1
+  if (this.isMinTemp()){
+    return;
   }
+  this._temp -= 1;
 };
 
 Thermostat.prototype.switchSavingMode = function() {
