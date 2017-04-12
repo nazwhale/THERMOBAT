@@ -19,18 +19,17 @@ $(document).ready(function() {
 
   $('#switch-saving-mode').on('click', function() {
     thermostat.switchSavingMode()
+    updates();
   })
 
   function updateTemperature(){
     $('#temperature').text(thermostat.getTemp());
-    $('#switch-saving-mode').attr('class', thermostat.isSavingOn())
-  };
+    $('#switch-saving-mode').attr('class', thermostat.isSavingOn());
+  }
 
   function updateUsage() {
     $('#energy-usage').text(thermostat.usage());
   };
-
-
 
   function updates() {
     updateTemperature();
