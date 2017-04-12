@@ -11,6 +11,15 @@ h3 {
   color: #da3521;
   font-size: 40px;
 }
+h2 {
+  color: #da3521;
+}
+select {
+  background-color: #efead7;
+  height: 50px;
+  width: 200px;
+  font-size: 20px;
+}
 button {
   font-family: "futura";
   font-size: 50px;
