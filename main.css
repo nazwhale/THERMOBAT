@@ -18,12 +18,12 @@ button {
   background-color: #efead7;
 }
 .saving-on {
-  background: #efead7;
+  background: #00e403;
 }
 
 .saving-off {
   background: black;
-  color: yellow;
+  color: #00e403;
 }
 #increase-temperature {
   width: 100px;
