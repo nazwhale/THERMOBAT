@@ -10,6 +10,8 @@ const INITIAL_TEMP = 20
 const MIN_TEMP = 10
 const SAVING_MAX = 25
 const NON_SAVING_MAX = 32
+const LOW_USAGE = 18
+const MED_USAGE = 25
 
 Thermostat.prototype.getTemp = function() {
   return this._temp
@@ -46,10 +48,10 @@ Thermostat.prototype.reset = function(){
 }
 
 Thermostat.prototype.usage = function() {
-  if (this._temp < 18) {
+  if (this._temp < LOW_USAGE) {
     return 'low-usage'
   }
-  else if (this._temp < 25) {
+  else if (this._temp < MED_USAGE) {
     return 'medium-usage'
   }
   return 'high-usage'
