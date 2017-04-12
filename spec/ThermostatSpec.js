@@ -50,12 +50,26 @@ describe('Thermostat', function() {
   });
 
   describe('energy usage', function(){
+
     it('expects low-usage when temp less than 18', function(){
       for(var x=0; x<3; x++) {
         thermostat.decrease()
       }
       expect(thermostat.usage()).toEqual('low-usage')
     })
+
+    it('expects medium-usage when temp less than 25', function(){
+      expect(thermostat.usage()).toEqual('medium-usage')
+    })
+
+    it('expects high-usage when temp more than 25', function(){
+      for(var x=0; x<6; x++) {
+        thermostat.increase()
+      }
+      expect(thermostat.usage()).toEqual('high-usage')
+    })
+
+
   })
 
 
