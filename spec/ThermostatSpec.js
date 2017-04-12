@@ -1,3 +1,5 @@
+'use strict';
+
 describe('Thermostat', function() {
 
   var thermostat;
@@ -45,8 +47,16 @@ describe('Thermostat', function() {
       thermostat.reset()
       expect(thermostat.temp).toEqual(20)
     });
-
   });
+
+  describe('energy usage', function(){
+    it('expects low-usage when temp less than 18', function(){
+      for(var x=0; x<3; x++) {
+        thermostat.decrease()
+      }
+      expect(thermostat.usage()).toEqual('low-usage')
+    })
+  })
 
 
 });

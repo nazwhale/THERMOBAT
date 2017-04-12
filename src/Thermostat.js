@@ -1,3 +1,5 @@
+'use strict';
+
 function Thermostat(temp=INITIAL_TEMP) {
   this.temp = temp
   this.min = MIN_TEMP
@@ -19,4 +21,8 @@ Thermostat.prototype.decrease = function() {
 
 Thermostat.prototype.switchSavingMode = function() {
   this.max === SAVING_MAX ? this.max = NON_SAVING_MAX : this.max = SAVING_MAX
+}
+
+Thermostat.prototype.reset = function(){
+  this.temp = 20
 }
