@@ -25,9 +25,15 @@ describe('Thermostat', function() {
     });
 
     it('has a minimum temperature of 10', function() {
-      expect(thermostat.min).toEqual(10)
+      expect(thermostat.min).toEqual(10);
     });
+  });
 
+  describe('power saving mode', function(){
+    it('is on', function(){
+      thermostat.isSavingMode = true;
+      expect(thermostat.max).toEqual(25);
+    });
   });
 
 });
