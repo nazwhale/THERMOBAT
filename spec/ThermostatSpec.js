@@ -13,7 +13,7 @@ describe('Thermostat', function() {
   });
 
   describe('changing temp', function() {
-  
+
     it('increases temp with an increase function', function() {
       thermostat.increase();
       expect(thermostat.temp).toEqual(21);
@@ -23,6 +23,11 @@ describe('Thermostat', function() {
       thermostat.decrease();
       expect(thermostat.temp).toEqual(19);
     });
+
+    it('has a minimum temperature of 10', function() {
+      expect(thermostat.min).toEqual(10)
+    });
+
   });
 
 });
