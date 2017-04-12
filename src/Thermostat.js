@@ -45,9 +45,9 @@ Thermostat.prototype.switchSavingMode = function() {
 
 Thermostat.prototype.isSavingOn = function() {
   if(this.max === SAVING_MAX) {
-     return true
+     return 'saving-on'
    }
-  return false
+  return 'saving-off'
 }
 
 Thermostat.prototype.reset = function(){
