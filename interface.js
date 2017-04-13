@@ -1,7 +1,8 @@
 $(document).ready(function() {
   var thermostat = new Thermostat;
   updates();
-  displayWeather('bratislava')
+  displayWeather('bratislava');
+  displayTime();
 
 
   $('#current-city').change(function() {
@@ -52,4 +53,9 @@ $(document).ready(function() {
     })
   }
 
+  function displayTime() {
+    $.get('http://localhost:4567/api.json', function(data) {
+      $('#current-time').text(data)
+    })
+  }
 });
