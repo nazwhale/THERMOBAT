@@ -4,7 +4,6 @@ $(document).ready(function() {
   displayWeather('bratislava');
   displayTime();
 
-
   $('#current-city').change(function() {
     var city = $('#current-city').val();
     displayWeather(city)
@@ -51,11 +50,11 @@ $(document).ready(function() {
     $.get(url + city + token + units, function(data) {
       $('#current-temperature').text(data.main.temp)
     })
-  }
+  }i
 
-  function displayTime() {
-    $.get('http://localhost:4567/api.json', function(data) {
-      $('#current-time').text(data)
-    })
-  }
+  // function displayTime() {
+  //   $.get('http://localhost:4567/api.json', function(data) {
+  //     $('#current-time').text(data)
+  //   })
+  // }
 });
